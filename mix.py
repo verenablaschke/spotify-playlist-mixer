@@ -1,6 +1,4 @@
-import json
 import random
-import sys
 import spotipy
 import spotipy.util as util
 import config
@@ -10,8 +8,6 @@ def get_playlist_contents(sp, username, playlist_id):
     results = sp.user_playlist(username, playlist_id, 'tracks,items,track,uri')
     contents = []
     for item in results['tracks']['items']:
-        track = item['track']
-        # print(track['artists'][0]['name'], track['name'], track['uri'].split(':')[2])
         contents.append(item['track']['uri'].split(':')[2])
     return contents
 
